@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>580</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>580</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>16</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Bangla Voice Calculator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="appResource.qrc">
+    <normaloff>:/Resources/SpeechCalTi.png</normaloff>:/Resources/SpeechCalTi.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>0.949990000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 rgb(72, 85, 99), stop: 1 rgb(41, 50, 60));
+color:white;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>10</y>
+      <width>501</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0%)</string>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="appResource.qrc">:/Resources/SpeechCalBanner.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>510</y>
+      <width>761</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+	text-align:center;
+	color:white;
+}
+
+QProgressBar::chunk {
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(235, 0, 0, 255), stop:0.935961 rgba(227, 64, 64, 255), stop:1 rgba(240, 240, 240, 255));
+    width: 20px;
+}</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="startBtn">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>460</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(153, 2, 2, 255), stop:0.935961 rgba(92, 11, 11, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid #520202;
+	border-radius: 20px;
+}
+
+QPushButton:hover {
+    background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 102, 7, 255), stop:0.935961 rgba(43, 186, 53, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid #006607;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #d9d200, stop: 1 #fff700);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>শুরু করুন</string>
+    </property>
+    <property name="icon">
+     <iconset resource="appResource.qrc">
+      <normaloff>:/Resources/mic.png</normaloff>:/Resources/mic.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>31</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="listenText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>761</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 6px solid #d1ca00;
+border-radius: 10px;
+color:white;</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="outputText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>340</y>
+      <width>761</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 6px solid #d1ca00;
+border-radius: 20px;
+color:white;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>300</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0,0%);
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>ফলাফলঃ</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+   color:white;
+spacing: 3px; /* spacing between menu bar items */
+}
+
+QMenuBar::item {
+    padding: 1px 4px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: #a8a8a8;
+}
+
+QMenuBar::item:pressed {
+    background: #888888;
+}</string>
+   </property>
+   <widget class="QMenu" name="menuhelp">
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionhelp"/>
+    <addaction name="actionabout"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuhelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionhelp">
+   <property name="icon">
+    <iconset resource="appResource.qrc">
+     <normaloff>:/Resources/help.png</normaloff>:/Resources/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>help</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionabout">
+   <property name="icon">
+    <iconset resource="appResource.qrc">
+     <normaloff>:/Resources/about.png</normaloff>:/Resources/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="appResource.qrc">
+     <normaloff>:/Resources/settings.png</normaloff>:/Resources/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="appResource.qrc">
+     <normaloff>:/Resources/exit.png</normaloff>:/Resources/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="appResource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
