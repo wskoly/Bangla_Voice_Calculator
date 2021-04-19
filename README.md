@@ -1,6 +1,6 @@
 # Bangla_Voice_Calculator
 
-![image](SpeechCalLogo.png)  
+<img src ='SpeechCalLogo.png' width=100 height=100>
 
 **বাংলা ভয়েস ক্যালকুলেটরঃ ১.০.০**
 
