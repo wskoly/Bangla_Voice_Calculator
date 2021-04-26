@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>560</width>
-    <height>400</height>
+    <width>700</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -36,6 +36,10 @@ color:white;
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QTextBrowser" name="textBrowser">
+       <property name="font">
+        <font>
+        </font>
+       </property>
        <property name="markdown">
         <string>![image](:/Resources/SpeechCalLogo.png)  
 
@@ -46,27 +50,125 @@ color:white;
   উত্তর জেনারেশন (যদি স্পিচে কোনো ম্যাথমেটিকাল কমান্ড থাকে) করতে সক্ষম।
 -  এপ্লিকেশনটি চালানোর জন্য একটি কার্যকর অডিও ইনপুট ডিভাইস(মাইক্রোফোন) এবং
   কার্যকর ইন্টারনেট সংযোগ থাকা বাঞ্চনীয়।
-- এপ্লিকেশনটি পূর্ণ সংখ্যা এবং ভগ্নাংশ সংখ্যার যোগ, বিয়োগ, গুন, ভাগ এবং বর্গমূল
-  করতে সক্ষম।
-- যোগ, বিয়োগ, গুন, ভাগের এর কমান্ডের ক্ষেত্রে অপারেটরকে, অপারেন্ড সংখ্যা দ্বয়ের
-  মাঝে রেখে কমান্ড দিতে হবে, এবং বর্গমূলের ক্ষেত্রে অপারেটরকে আগে রাখতে হবে।
+- এপ্লিকেশনটি পূর্ণ সংখ্যা, দশমিক সংখ্যা এবং ঋণাত্মক সংখ্যার যোগ, বিয়োগ, গুন,
+  ভাগ এবং ধনাত্মক সংখ্যার বর্গমূল, সূচক(power) এবং মূল(root) বের করতে সক্ষম।
+- যোগ, বিয়োগ, গুন, ভাগের কমান্ডের ক্ষেত্রে অপারেটরকে, অপারেন্ড সংখ্যা দ্বয়ের
+  মাঝে রেখে কমান্ড দিতে হবে, ঋণাত্মক সংখ্যার ক্ষেত্রে সংখ্যার পূর্বে ঋনাত্মক
+  অথবা মাইনাস বলতে হবে, বর্গমূলের ক্ষেত্রে বর্গমূল অপারেটরকে আগে রাখতে হবে,
+  সূচক নির্নয়ের ক্ষেত্রে প্রথমে সংখ্যা এবং পরে ঘাত বলতে হবে এবং সংখ্যা এবং
+  ঘাতের মাঝখানে সূচক অপারেটরকে রাখতে হবে, এবং পরিশেষে মূল বের করার জন্যেও
+  প্রথমে সংখ্যা এবং পরে মূলের ঘাত বলতে হবে এবং সংখ্যা এবং মূলের ঘাতের মাঝখানে
+  মূল(root) অপারেটরকে রাখতে হবে । যেমন,
+  - এক হাজার কুড়ি এর সাথে যোগ করো বারো এর সাথে বিয়োগ করো তিন ≡ ১০২০ + ১২ - ৩	
+  - এক দুই ছয় বিয়োগ সাত আট নয় ≡ ১২৬ - ৭৮৯	
+  - বর্গমূল ১০৭ ≡ √১০৭	
+  - এক শত সাত দশমিক তিন চার যোগ ঋণাত্মক দশমিক তিন চার ≡ ১০৭.৩৪ + -০.৩৪
+  - ২ পাওয়ার সাত ≡ ২^৭
+  -  ২ সূচক সাত ≡ ২^৭
+  - ৫ শ ১২ মূল ৩ ≡ ৫১২^(১/৩)
+  - ৬৪ রুট ৩  ≡ ৬৪^(১/৩)
+- অপারেটর কমান্ডগুলি নিম্নরূপঃ
+
+|অপারেটর    |সমতূল্য কমান্ড              |
+|-----------|----------------------------|
+|+          |যোগ, প্লাস                  |
+|-          |বিয়োগ, মাইনাস, ঋনাত্মক      |
+|×          |গুন, ইনটু                   |
+|÷          |ভাগ                         |
+|√          |বর্গমূল                     |
+|সূচক       |সূচক, শক্তি, পাওয়ার, ঘাত    |
+|মূল        |মূল, রুট                    |
+
+
+- এছাড়াও এপ্লিকেশনটিতে পূর্বে প্রাপ্ত উত্তরের সাথে নতুন সংখ্যার অপারেশনের সুযোগ
+  রয়েছে। পুর্বের উত্তর পেতে **&quot;উত্তর&quot;** শব্দকে কমান্ড হিসাবে দিতে হবে। যেমন,
+  - উত্তর যোগ সাত  দশমিক তিন চার
+
 - এপ্লিকেশনটির সেটিংস এ ফলাফল বাংলায় এবং ইংলিশে উভয় ভাবে দেখারই অপশন রয়েছে।
 - এছাড়াও সেটিংস এ ফ্রেজ টাইম লিমিট নির্ধারন করে দেওয়ার অপশন রয়েছে।
+- কমান্ড দেওয়ার জন্য **&quot;শুরু করুন&quot;** বাটনটি ক্লিক করুন। বাটনটি ক্লিক করার পর নয়েজ
+  ক্যান্সেলেশনের জন্য কিছু সময় অপেক্ষা করুন। নয়েজ ক্যান্সেলেশন প্রসেস সম্পূর্ণ
+  হলে বাটনটিতে **&quot;বলুন&quot;** লেখা দেখতে পারবেন। এছাড়াও স্ট্যাটাস বারে **&quot;Listening&quot;
+  লেখা দেখতে পাবেন। তখন স্পিচ কমান্ড দেওয়া শুরু করুন। এপ্লিকেশনটির কমান্ড নেওয়া
+  শেষ হলে স্ট্যাটাস বারের লিসেনিং লেখাটা পরিবর্তন হয়ে **&quot;Sending audio for
+  recognition&quot;** দেখাবে। এর পরেই আপনি আপনার কমান্ড এবং কাঙ্খিত ফলাফল দেখতে পাবেন।
+
+ধন্যবাদ এপ্লিকেশনটি ব্যবহার করার জন্য। বাগ রিপোর্ট অথবা কোনো তথ্য জানতে আমাকে
+মেইল করুন [এখানে।](mailto:wskoly.bp@gmail.com)
+
 </string>
        </property>
        <property name="html">
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/Resources/SpeechCalLogo.png&quot; alt=&quot;image&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;span style=&quot; font-size:26pt;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:26pt; font-weight:600;&quot;&gt;বাংলা ভয়েস ক্যালকুলেটরঃ ১.০.০&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:16pt; font-weight:600;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;বাংলা ভয়েস ক্যালকুলেটর এপ্লিকেশনটি আপনার থেকে বাংলায় স্পিচ কমান্ড নিতে সক্ষম এবং আপনার থেকে প্রাপ্ত স্পিচ কমান্ড থেকে ম্যাথমেটিক্যাল এক্সপ্রেশন এবং তার উত্তর জেনারেশন (যদি স্পিচে কোনো ম্যাথমেটিকাল কমান্ড থাকে) করতে সক্ষম।&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:16pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; এপ্লিকেশনটি চালানোর জন্য একটি কার্যকর অডিও ইনপুট ডিভাইস(মাইক্রোফোন) এবং কার্যকর ইন্টারনেট সংযোগ থাকা বাঞ্চনীয়।&lt;/li&gt;
-&lt;li style=&quot; font-size:16pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এপ্লিকেশনটি পূর্ণ সংখ্যা এবং ভগ্নাংশ সংখ্যার যোগ, বিয়োগ, গুন, ভাগ এবং বর্গমূল করতে সক্ষম।&lt;/li&gt;
-&lt;li style=&quot; font-size:16pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;যোগ, বিয়োগ, গুন, ভাগের এর কমান্ডের ক্ষেত্রে অপারেটরকে, অপারেন্ড সংখ্যা দ্বয়ের মাঝে রেখে কমান্ড দিতে হবে, এবং বর্গমূলের ক্ষেত্রে অপারেটরকে আগে রাখতে হবে।&lt;/li&gt;
-&lt;li style=&quot; font-size:16pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এপ্লিকেশনটির সেটিংস এ ফলাফল বাংলায় এবং ইংলিশে উভয় ভাবে দেখারই অপশন রয়েছে।&lt;/li&gt;
-&lt;li style=&quot; font-size:16pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এছাড়াও সেটিংস এ ফ্রেজ টাইম লিমিট নির্ধারন করে দেওয়ার অপশন রয়েছে।&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/Resources/SpeechCalLogo.png&quot; alt=&quot;image&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;span style=&quot;  font-size:26pt; font-weight:400;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:26pt;&quot;&gt;বাংলা ভয়েস ক্যালকুলেটরঃ ১.০.০&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot;  font-size:16pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;বাংলা ভয়েস ক্যালকুলেটর এপ্লিকেশনটি আপনার থেকে বাংলায় স্পিচ কমান্ড নিতে সক্ষম এবং আপনার থেকে প্রাপ্ত স্পিচ কমান্ড থেকে ম্যাথমেটিক্যাল এক্সপ্রেশন এবং তার উত্তর জেনারেশন (যদি স্পিচে কোনো ম্যাথমেটিকাল কমান্ড থাকে) করতে সক্ষম।&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; এপ্লিকেশনটি চালানোর জন্য একটি কার্যকর অডিও ইনপুট ডিভাইস(মাইক্রোফোন) এবং কার্যকর ইন্টারনেট সংযোগ থাকা বাঞ্চনীয়।&lt;/li&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এপ্লিকেশনটি পূর্ণ সংখ্যা, দশমিক সংখ্যা এবং ঋণাত্মক সংখ্যার যোগ, বিয়োগ, গুন, ভাগ এবং ধনাত্মক সংখ্যার বর্গমূল, সূচক(power) এবং মূল(root) বের করতে সক্ষম।&lt;/li&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;যোগ, বিয়োগ, গুন, ভাগের কমান্ডের ক্ষেত্রে অপারেটরকে, অপারেন্ড সংখ্যা দ্বয়ের মাঝে রেখে কমান্ড দিতে হবে, ঋণাত্মক সংখ্যার ক্ষেত্রে সংখ্যার পূর্বে ঋনাত্মক অথবা মাইনাস বলতে হবে, বর্গমূলের ক্ষেত্রে বর্গমূল অপারেটরকে আগে রাখতে হবে, সূচক নির্নয়ের ক্ষেত্রে প্রথমে সংখ্যা এবং পরে ঘাত বলতে হবে এবং সংখ্যা এবং ঘাতের মাঝখানে সূচক অপারেটরকে রাখতে হবে, এবং পরিশেষে মূল বের করার জন্যেও প্রথমে সংখ্যা এবং পরে মূলের ঘাত বলতে হবে এবং সংখ্যা এবং মূলের ঘাতের মাঝখানে মূল(root) অপারেটরকে রাখতে হবে । যেমন,&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot;  font-size:14pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;এক হাজার কুড়ি&lt;/span&gt; এর সাথে &lt;span style=&quot; color:#00ffff;&quot;&gt;যোগ&lt;/span&gt; করো &lt;span style=&quot; color:#ffff00;&quot;&gt;বারো&lt;/span&gt; এর সাথে &lt;span style=&quot; color:#00ffff;&quot;&gt;বিয়োগ&lt;/span&gt; করো &lt;span style=&quot; color:#ffff00;&quot;&gt;তিন &lt;/span&gt;&lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ১০২০ + ১২ - ৩&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;	&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;এক দুই ছয়&lt;/span&gt; &lt;span style=&quot; color:#00ffff;&quot;&gt;বিয়োগ&lt;/span&gt; &lt;span style=&quot; color:#ffff00;&quot;&gt;সাত আট নয় &lt;/span&gt;&lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ১২৬ - ৭৮৯&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;	&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#00ffff;&quot;&gt;বর্গমূল&lt;/span&gt; &lt;span style=&quot; color:#ffff00;&quot;&gt;১০৭ &lt;/span&gt;&lt;span style=&quot; color:#aaff00;&quot;&gt;≡ √১০৭&lt;/span&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;	&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;এক শত সাত দশমিক তিন চার&lt;/span&gt; &lt;span style=&quot; color:#00ffff;&quot;&gt;যোগ&lt;/span&gt; &lt;span style=&quot; color:#00ff00;&quot;&gt;ঋণাত্মক&lt;/span&gt; &lt;span style=&quot; color:#ffff00;&quot;&gt;দশমিক তিন চার &lt;/span&gt;&lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ১০৭.৩৪ + -০.৩৪&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400; color:#ffff00;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;২ &lt;span style=&quot; color:#00ffff;&quot;&gt;পাওয়ার&lt;/span&gt; সাত &lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ২^৭&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400; color:#ffff00;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ২ &lt;span style=&quot; color:#00ffff;&quot;&gt;সূচক&lt;/span&gt; সাত &lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ২^৭&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400; color:#ffff00;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;৫ শ ১২ &lt;span style=&quot; color:#00ffff;&quot;&gt;মূল&lt;/span&gt; ৩ &lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ৫১২^(১/৩)&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot;  font-size:14pt; font-weight:400; color:#ffff00;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;৬৪ &lt;span style=&quot; color:#00ffff;&quot;&gt;রুট&lt;/span&gt; ৩  &lt;span style=&quot; color:#aaff00;&quot;&gt;≡ ৬৪^(১/৩)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;অপারেটর কমান্ডগুলি নিম্নরূপঃ&lt;/li&gt;&lt;/ul&gt;
+&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:317px; margin-right:37px; border-collapse:collapse;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt;&quot;&gt;অপারেটর&lt;/span&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt;&quot;&gt;সমতূল্য কমান্ড&lt;/span&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;+    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;যোগ, প্লাস    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;-    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;বিয়োগ, মাইনাস, ঋনাত্মক    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;×    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;গুন, ইনটু    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;÷    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;ভাগ    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;√    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;বর্গমূল    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;সূচক    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;সূচক, শক্তি, পাওয়ার, ঘাত    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;মূল    &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot; padding-left:8; padding-right:8; padding-top:8; padding-bottom:8; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dddddd; border-right-color:#dddddd; border-bottom-color:#dddddd; border-left-color:#dddddd; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;মূল, রুট  &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এছাড়াও এপ্লিকেশনটিতে পূর্বে প্রাপ্ত উত্তরের সাথে নতুন সংখ্যার অপারেশনের সুযোগ রয়েছে। পুর্বের উত্তর পেতে &lt;span style=&quot; font-weight:600; color:#00ffff;&quot;&gt;&amp;quot;উত্তর&amp;quot;&lt;/span&gt; শব্দকে কমান্ড হিসাবে দিতে হবে। যেমন,&lt;/li&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;&lt;li style=&quot;  font-size:14pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:10px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;উত্তর&lt;/span&gt; &lt;span style=&quot; color:#00ffff;&quot;&gt;যোগ &lt;/span&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;সাত&lt;/span&gt;&lt;span style=&quot; color:#00ffff;&quot;&gt;  &lt;/span&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;দশমিক তিন চার&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এপ্লিকেশনটির সেটিংস এ ফলাফল বাংলায় এবং ইংলিশে উভয় ভাবে দেখারই অপশন রয়েছে।&lt;/li&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;এছাড়াও সেটিংস এ ফ্রেজ টাইম লিমিট নির্ধারন করে দেওয়ার অপশন রয়েছে।&lt;/li&gt;
+&lt;li style=&quot;  font-size:16pt; font-weight:400;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;কমান্ড দেওয়ার জন্য &lt;span style=&quot; font-weight:600; color:#00ffff;&quot;&gt;&amp;quot;শুরু করুন&amp;quot;&lt;/span&gt; বাটনটি ক্লিক করুন। বাটনটি ক্লিক করার পর নয়েজ ক্যান্সেলেশনের জন্য কিছু সময় অপেক্ষা করুন। নয়েজ ক্যান্সেলেশন প্রসেস সম্পূর্ণ হলে বাটনটিতে &lt;span style=&quot; font-weight:600; color:#00ffff;&quot;&gt;&amp;quot;বলুন&amp;quot;&lt;/span&gt; লেখা দেখতে পারবেন। এছাড়াও স্ট্যাটাস বারে &lt;span style=&quot; font-weight:600; color:#00ffff;&quot;&gt;&amp;quot;Listening&amp;quot;&lt;/span&gt; লেখা দেখতে পাবেন। তখন স্পিচ কমান্ড দেওয়া শুরু করুন। এপ্লিকেশনটির কমান্ড নেওয়া শেষ হলে স্ট্যাটাস বারের লিসেনিং লেখাটা পরিবর্তন হয়ে &lt;span style=&quot; font-weight:600; color:#00ffff;&quot;&gt;&amp;quot;Sending audio for recognition&amp;quot;&lt;/span&gt; দেখাবে। এর পরেই আপনি আপনার কমান্ড এবং কাঙ্খিত ফলাফল দেখতে পাবেন।&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;  font-size:16pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;  font-size:16pt; font-weight:400;&quot;&gt;ধন্যবাদ এপ্লিকেশনটি ব্যবহার করার জন্য। বাগ রিপোর্ট অথবা কোনো তথ্য জানতে আমাকে মেইল করুন &lt;/span&gt;&lt;a href=&quot;mailto:wskoly.bp@gmail.com&quot;&gt;&lt;span style=&quot;  font-size:14pt; text-decoration: underline; color:#00ffff;&quot;&gt;এখানে।&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="openExternalLinks">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

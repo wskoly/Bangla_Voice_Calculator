@@ -8,7 +8,6 @@ from PyQt5.QtCore import QObject, QThread, pyqtSignal
 import resources
 import speech_recognition as sr
 from speech_to_exp import *
-import json
 from base import *
 
 class SpeechCal(QObject):
@@ -27,10 +26,9 @@ class SpeechCal(QObject):
 
     def speech(self):
         prevResult = self.PrevResult
-        print("Child Class ans:"+str(prevResult))
         self.status.emit('preparing')
         self.progress.emit(10)
-        with open(appContext.get_resource('settings/settings.json'),'r') as file:
+        with open(settings_file,'r') as file:
             setting = json.load(file)
 
         self.status.emit('Checking Internet Connection')
@@ -96,7 +94,7 @@ class MainWindow(QMainWindow):
 
         self.help.triggered.connect(self.ShowHelp)
         self.settings.triggered.connect(self.ShowSettings)
-        self.exit.triggered.connect(self.closeEvent)
+        self.exit.triggered.connect(self.close)
         self.about.triggered.connect(self.OpenAbout)
         self.btn.clicked.connect(self.BtnClicked)
 
@@ -134,7 +132,7 @@ class MainWindow(QMainWindow):
     def ShowListendText(self, text):
         self.listen_txt.insertPlainText(BengalizeNumber(text))
     def ShowCalculation(self, result):
-        with open(appContext.get_resource('settings/settings.json'), 'r') as file:
+        with open(settings_file, 'r') as file:
             setting = json.load(file)
         if setting['bangla']:
             fullText = BengalizeNumber(str(result[0]))+'='+BengalizeNumber(str(result[1]))
@@ -144,7 +142,6 @@ class MainWindow(QMainWindow):
 
     def SetResult(self,result):
         self.Result = result[1]
-        print("parent class result set"+str(self.Result))
     def ShowError(self, error):
         msg = QMessageBox()
         msg.setWindowIcon(QIcon(r':Resources/SpeechCalTi.png'))
@@ -196,9 +193,9 @@ class MainWindow(QMainWindow):
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         ensure = msg.exec_()
         if ensure == QMessageBox.Yes:
-            event.accept()
             app = QApplication([])
             app.closeAllWindows()
+            event.accept()
         else:
             event.ignore()
 
@@ -206,6 +203,11 @@ class HelpWindow(QDialog):
     def __init__(self):
         super(HelpWindow, self).__init__()
         uic.loadUi(appContext.get_resource('ui/help.ui'),self)
+        self.textBrowser = self.findChild(QTextBrowser, 'textBrowser')
+        # self.fontDB = QtGui.QFontDatabase()
+        # self.fontID = self.fontDB.addApplicationFont(":Resources/BenSenHandwriting.ttf")
+        self.font = QFont('BenSenHandwriting')
+        self.textBrowser.setFont(self.font)
 
 class AboutWindow(QDialog):
     def __init__(self):
@@ -217,7 +219,7 @@ class SettingWindow(QDialog):
     def __init__(self):
         super(SettingWindow, self).__init__()
         uic.loadUi(appContext.get_resource('ui/SettingsWindow.ui'),self)
-        with open(appContext.get_resource('settings/settings.json'),'r') as file:
+        with open(settings_file,'r') as file:
             self.setting = json.load(file)
 
         self.timeCheck = self.findChild(QCheckBox,'listenTimeCBox')
@@ -251,12 +253,12 @@ class SettingWindow(QDialog):
             limit = None
         self.setting['limit'] = limit
         self.setting['bangla'] = self.BanglaResult.isChecked()
+        with open(settings_file,'w') as file:
+            json.dump(self.setting, file)
         if self.setting['bangla']:
             self.finished_signal.emit(True)
         else:
             self.finished_signal.emit(False)
-        with open(appContext.get_resource('settings/settings.json'),'w') as file:
-            json.dump(self.setting, file)
 
 
 
