@@ -1,59 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
-	<style type="text/css">
-		body {
-  background-color: #373438;
-}
-
-#love {
-  font-size: 3em;
-  text-align: center;
-  padding-top: 100px;
-}
-
-span {
-  -webkit-transition-property: color, text;
-  -webkit-transition-duration: 0.45s;
-  -webkit-transition-timing-function: linear, ease-in;
-
-  -moz-transition-property: color, text;
-  -moz-transition-duration: 0.45s;
-  -moz-transition-timing-function: linear, ease-in;
-
-  -o-transition-property: color, text;
-  -o-transition-duration: 0.45s;
-  -o-transition-timing-function: linear, ease-in;
-}
-
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/templatemo-comparto.css" rel="stylesheet" />
+    <title>Bangla Voice Calculator</title>
 </head>
+
 <body>
-<div id="love">
-  ♥ I love you Adiba! ♥
-</div>
-<script type="text/javascript">
-	const generateHexString = length => {
-  let hex = '0123456789abcdef';
-  let string = '';
-  while(length--) {
-    string += hex[Math.floor(Math.random() * hex.length)];  
-  }
-  return string;
-}
+    <!-- Back to top button -->
+    <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>
+    <div class="container-fluid">
+        <div class="tm-site-header tm-mb-1">
+            <div class="tm-site-name-container tm-bg-color-10">
+                <img src="https://i.ibb.co/wdqypzq/Speech-Cal-Logo.png"  width="150" height="150" style="float: left;">
+                <h1 class="tm-text-white">Bangla Voice Calculator</h1>
+            </div>
+        </div>
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                    <iframe width="650" height="460" src="https://www.youtube-nocookie.com/embed/ysTuQe7hxZY" title="YouTube video player" frameborder="100" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <article class="tm-section-1-r tm-bg-color-8">
+                    <h2 class="tm-mb-2 tm-title-color" style="font-size: 2em;">Bangla Voice Calculator<br>v1.0.0</h2>
+                    <p>A GUI application which takes Bengali voice command as input and performs basic mathematical calculation based on those commands.</p>
+                    <br><br>
+                    <a href="https://www.dropbox.com/s/5anxm8jiiceg2td/Bangla%20Voice%20Calculator%201.0.0.exe?dl=1" class="tm-btn tm-btn-1 tm-link-to-services">Download</a>
+                </article>
+            </div>
+        </section>
+    
+        <div class="tm-mb-4 text-center tm-social-s">
+            <a href="//www.wskoly.ml" style="font-size:2em; color: rgb(0, 188, 235); border: 3px solid rgb(0, 183, 255); border-radius:20px;"><b> Back to the main site </b></a>
+        </div>
+        <footer class="text-center tm-mb-1">
+            <p>Wahid Sadique Koly</p>
+        </footer>
+    </div> <!-- .container -->
+    <script src="js/jquery.min.js"></script> <!-- https://jquery.com/download/ -->
+    <script src="js/imagesloaded.pkgd.min.js"></script> <!-- https://imagesloaded.desandro.com/ -->
+    <script src="js/isotope.pkgd.min.js"></script> <!-- https://isotope.metafizzy.co/ -->
+    <script src="js/jquery.singlePageNav.min.js"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
+    <script>
 
-let love = document.getElementById('love');
-love.innerHTML = love.innerHTML.split('').map(letter => `<span style="color:#${generateHexString(6)}" class="loveLetter">${letter}</span>`).join('');
+        // Scroll to Top button
+        var btn = $('#button');
 
-const changeColor = () => {
-  let letters = document.getElementsByClassName('loveLetter');
-  for(let i = 0; i < letters.length; i++) {
-    letters[i].style.color = '#' + generateHexString(6);
-  };
-}
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
 
-setInterval(changeColor, 500);
-</script>
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        // DOM is ready
+        $(function () {
+            // Single Page Nav
+            $('#tm-nav').singlePageNav({ speed: 600 });
+
+            // Smooth Scroll (https://css-tricks.com/snippets/jquery/smooth-scrolling/)
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 600, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+
+            /* Isotope Gallery */
+
+            // init isotope
+            var $gallery = $(".tm-gallery").isotope({
+                itemSelector: ".tm-gallery-item",
+                layoutMode: "fitRows"
+            });
+            // layout Isotope after each image loads
+            $gallery.imagesLoaded().progress(function () {
+                $gallery.isotope("layout");
+            });
+
+            $(".filters-button-group").on("click", "a", function () {
+                var filterValue = $(this).attr("data-filter");
+                $gallery.isotope({ filter: filterValue });
+            });
+
+            $(".tabgroup > div").hide();
+            $(".tabgroup > div:first-of-type").show();
+            $(".tabs a").click(function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+                    others = $this
+                        .closest("li")
+                        .siblings()
+                        .children("a"),
+                    target = $this.attr("href");
+                others.removeClass("active");
+                $this.addClass("active");
+            });
+        });
+    </script>
 </body>
 </html>
