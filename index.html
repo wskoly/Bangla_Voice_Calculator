@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {
+  background-color: #373438;
+}
+
+#love {
+  font-size: 3em;
+  text-align: center;
+  padding-top: 100px;
+}
+
+span {
+  -webkit-transition-property: color, text;
+  -webkit-transition-duration: 0.45s;
+  -webkit-transition-timing-function: linear, ease-in;
+
+  -moz-transition-property: color, text;
+  -moz-transition-duration: 0.45s;
+  -moz-transition-timing-function: linear, ease-in;
+
+  -o-transition-property: color, text;
+  -o-transition-duration: 0.45s;
+  -o-transition-timing-function: linear, ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="love">
+  ♥ I love you Adiba! ♥
+</div>
+<script type="text/javascript">
+	const generateHexString = length => {
+  let hex = '0123456789abcdef';
+  let string = '';
+  while(length--) {
+    string += hex[Math.floor(Math.random() * hex.length)];  
+  }
+  return string;
+}
+
+let love = document.getElementById('love');
+love.innerHTML = love.innerHTML.split('').map(letter => `<span style="color:#${generateHexString(6)}" class="loveLetter">${letter}</span>`).join('');
+
+const changeColor = () => {
+  let letters = document.getElementsByClassName('loveLetter');
+  for(let i = 0; i < letters.length; i++) {
+    letters[i].style.color = '#' + generateHexString(6);
+  };
+}
+
+setInterval(changeColor, 500);
+</script>
+</body>
+</html>
